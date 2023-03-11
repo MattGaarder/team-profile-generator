@@ -3,7 +3,46 @@
 // this is going to be our big daddy to all the rest of our classes 
 
 class Employee {
-    constructor()
+    constructor(name, id, email) {
+        this.name = name;
+        this.id = id;
+        this.email = email;
+        this.role = "Employee";
+    }
+
+    getName() {
+        console.log('this getName function is working');
+    };
+    getId() {
+        console.log('this getId function is working');
+    };
+    getEmail() {
+        console.log('this getEmail function is working');
+    };
+    getRole() {
+        console.log(`this getRole function is working and logs ${this.role}`)
+    };
 }
 
 module.exports = Employee;
+
+
+
+// Question: How do I log this to the console so that I can check that it is doing what I want it to do?
+
+
+
+
+// class Vehicle {
+//     constructor(id, numberOfWheels, sound) {
+//       this.id = id;
+//       this.numberOfWheels = numberOfWheels;
+//       this.sound = sound;
+//     }
+  
+//     printInfo() {
+//       console.log(`This vehicle has ${this.numberOfWheels} wheels`);
+//       console.log(`This vehicle has an id of ${this.id}`);
+//     }
+//   }
+//   module.exports = Vehicle;

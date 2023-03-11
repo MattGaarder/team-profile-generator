@@ -6,7 +6,7 @@ const managerQuestions = [
     },
     {
         message: "Please enter your ID?",
-        name: "ID",
+        name: "id",
         type: "input",
     },
     {
@@ -21,17 +21,17 @@ const managerQuestions = [
     },
 ];
     
+module.exports = managerQuestions;
 
 
-
-
+/*
 
 "Which type of team memeber would you like to add?"
 "Engineer"
 "Manager"
 "Intern"
 "I don't want to add any more team members"
-}]
+
 
 "What is the team manager's name?"
 "What is the team manager's ID?"
@@ -42,3 +42,5 @@ const managerQuestions = [
 "Manager"
 "Intern"
 "I don't want to add any more team members"
+
+*/

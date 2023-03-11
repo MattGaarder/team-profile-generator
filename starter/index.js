@@ -5,6 +5,9 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
+
+const prompt = inquirer.createPromptModule();
+
 const path = require("path");
 const fs = require("fs");
 
@@ -28,7 +31,7 @@ function init() {
 }
 */
 
-const employeeQuestions = require("./employeeQuestions");
+const managerQuestions = require("./employeeQuestions");
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
@@ -44,14 +47,22 @@ const employees = [];
 
 
 
-// this is an array where I am going to push the information for my employees 
 
-inquirer.createPromptModule([{
-    // manager questions
-}]).then(response => [
-    // populate manager info
-    // promptForNextEmployeee();
-]);
+prompt(managerQuestions).then(response => {
+    const manager = new Manager(
+        response.name,
+        response.id,
+        response.email,
+        response.number,
+    );
+    console.log(manager);
+    employees.push(manager);
+    promptForNextEmployee();
+});
+
+const employee = new Employee('John Doe', '123', 'john.doe@example.com', '555-1234');
+employee.getId();
+
 
 const promptForNextEmployee = () => {
     inquirer.prompt([{
@@ -65,6 +76,8 @@ const promptForNextEmployee = () => {
         //  use the functionality from page-template to generate the team
     })
 };
+
+/*
 
 const promptForEngineer = () => {
     inquirer.prompt([{
@@ -87,3 +100,5 @@ const promptForIntern = () => {
 const buildPage = () => {
 
 }
+
+*/
