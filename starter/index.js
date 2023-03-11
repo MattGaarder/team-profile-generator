@@ -9,7 +9,7 @@ const path = require("path");
 const fs = require("fs");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+const outputPath = path.join(OUTPUT_DIR, "matt-sample.html");
 
 // const { info } = require("console"); // I'm not sure what this is for 
 
