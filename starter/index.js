@@ -2,8 +2,8 @@
 const Employee = require("./lib/Employee");
 
 const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
+// const Engineer = require("./lib/Engineer");
+// const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 
 const prompt = inquirer.createPromptModule();
@@ -11,12 +11,12 @@ const prompt = inquirer.createPromptModule();
 const path = require("path");
 const fs = require("fs");
 
-const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+// const OUTPUT_DIR = path.resolve(__dirname, "output");
+// const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const { info } = require("console"); // I'm not sure what this is for 
+// const { info } = require("console"); // I'm not sure what this is for 
 
-const render = require("./src/page-template.js"); // this is the equivalent to my generateMarkdown.js file in the readme project
+// const render = require("./src/page-template.js"); // this is the equivalent to my generateMarkdown.js file in the readme project
 // eventually we will use fs to write our HTML with the promise from our inquirer prompts 
 
 
@@ -46,7 +46,10 @@ const employees = [];
 
 
 
+const manager = new Manager("John Doe", 123, "johndoe@example.com", "A123");
 
+console.log(manager.getRole()); 
+console.log(manager.getOfficeNumber());
 
 prompt(managerQuestions).then(response => {
     const manager = new Manager(
@@ -63,7 +66,7 @@ prompt(managerQuestions).then(response => {
 const employee = new Employee('John Doe', '123', 'john.doe@example.com', '555-1234');
 employee.getId();
 
-
+/*
 const promptForNextEmployee = () => {
     inquirer.prompt([{
         //choice of 3
@@ -77,7 +80,7 @@ const promptForNextEmployee = () => {
     })
 };
 
-/*
+
 
 const promptForEngineer = () => {
     inquirer.prompt([{
