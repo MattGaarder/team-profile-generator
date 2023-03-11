@@ -2,8 +2,8 @@
 const Employee = require("./lib/Employee");
 
 const Manager = require("./lib/Manager");
-// const Engineer = require("./lib/Engineer");
-// const Intern = require("./lib/Intern");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 
 const prompt = inquirer.createPromptModule();
@@ -31,7 +31,7 @@ function init() {
 }
 */
 
-const managerQuestions = require("./employeeQuestions");
+const questions = require("./employeeQuestions");
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
@@ -46,12 +46,12 @@ const employees = [];
 
 
 
-const manager = new Manager("John Doe", 123, "johndoe@example.com", "A123");
+// const manager = new Manager("John Doe", 123, "johndoe@example.com", "A123");
 
-console.log(manager.getRole()); 
-console.log(manager.getOfficeNumber());
+// console.log(manager.getRole()); 
+// console.log(manager.getOfficeNumber());
 
-prompt(managerQuestions).then(response => {
+prompt(questions.forManager).then(response => {
     const manager = new Manager(
         response.name,
         response.id,
@@ -63,24 +63,25 @@ prompt(managerQuestions).then(response => {
     promptForNextEmployee();
 });
 
-const employee = new Employee('John Doe', '123', 'john.doe@example.com', '555-1234');
-employee.getId();
+// const employee = new Employee('John Doe', '1239', 'john.doe@example.com', '555-1234');
+// console.log(employee.getId());
 
-/*
+console.log(questions.nextEmployee);
+
 const promptForNextEmployee = () => {
-    inquirer.prompt([{
-        //choice of 3
-    }]).then(response => {
-        // if engineer
-        //  promptForEngineer
-        // else if intern
-        //  promptForIntern
-        // else 
-        //  use the functionality from page-template to generate the team
+    inquirer.prompt(questions.nextEmployee).then(response => {
+        console.log(response);
+        if (response.employeeType === "Engineer") {
+            promptForEngineer();
+        } else if (response.employeeType === "Intern") {
+            promptForIntern();
+        } else {
+            console.log("will call the build page function here");
+        }
     })
 };
 
-
+/*
 
 const promptForEngineer = () => {
     inquirer.prompt([{

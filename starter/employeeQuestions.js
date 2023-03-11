@@ -1,4 +1,4 @@
-const managerQuestions = [
+const forManager = [
     {
         message: "Please enter your name",
         name: "name",
@@ -20,8 +20,23 @@ const managerQuestions = [
         type: "input",
     },
 ];
-    
-module.exports = managerQuestions;
+
+const nextEmployee = [
+    {
+        type: "list",
+        name: "employeeType",
+        message: "Which type of team member would you like to add?",
+        choices: ["Engineer", "Intern", "Done"],
+    }
+]
+
+
+
+
+module.exports = {
+    forManager,
+    nextEmployee,
+};
 
 
 /*
