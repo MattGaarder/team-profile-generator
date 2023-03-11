@@ -100,11 +100,16 @@ const promptForEngineer = () => {
 
 
 const promptForIntern = () => {
-    inquirer.prompt([{
-        // intern questions
-    }]).then(response => {
-        // add new intern to employees array
-        // promptForNextEmployee
+    inquirer.prompt(questions.aboutIntern).then(response => {
+        const intern = new Engineer(
+            response.name,
+            response.id,
+            response.email,
+            response.school,
+        );
+        console.log(intern);
+        employees.push(intern);
+        promptForNextEmployee();
     })
 };
 

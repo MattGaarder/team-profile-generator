@@ -25,7 +25,7 @@ const nextEmployee = [
     {
         type: "list",
         name: "employeeType",
-        message: "Which type of team member would you like to add?",
+        message: "Please select the employee you would like to add",
         choices: ["Engineer", "Intern", "Done"],
     }
 ]
@@ -53,12 +53,34 @@ const aboutEngineer = [
     },
 ]
 
-
+const aboutIntern = [
+    {
+        type: "input",
+        name: "name",
+        message: "Please enter the name of the intern",
+    },
+    {
+        type: "input",
+        name: "id",
+        message: "Please enter the intern's ID",
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "Please enter the intern's email address",
+    },
+    {
+        type: "input",
+        name: "github",
+        message: "Please enter the intern's school",
+    },
+]
 
 module.exports = {
     forManager,
     nextEmployee,
     aboutEngineer,
+    aboutIntern,
 };
 
 
