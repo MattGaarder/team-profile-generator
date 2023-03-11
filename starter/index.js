@@ -81,16 +81,23 @@ const promptForNextEmployee = () => {
     })
 };
 
-/*
+
 
 const promptForEngineer = () => {
-    inquirer.prompt([{
-        // engineer questions
-    }]).then(response => {
-        // add new engineer to employees array
-        // promptForNextEmployee
+    inquirer.prompt(questions.aboutEngineer).then(response => {
+        const engineer = new Engineer(
+            response.name,
+            response.id,
+            response.email,
+            response.github,
+        );
+        console.log(engineer);
+        employees.push(engineer);
+        promptForNextEmployee();
     })
 };
+
+
 
 const promptForIntern = () => {
     inquirer.prompt([{
@@ -100,6 +107,8 @@ const promptForIntern = () => {
         // promptForNextEmployee
     })
 };
+
+/*
 
 const buildPage = () => {
 
