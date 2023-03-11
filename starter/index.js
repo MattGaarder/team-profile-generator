@@ -11,12 +11,12 @@ const prompt = inquirer.createPromptModule();
 const path = require("path");
 const fs = require("fs");
 
-// const OUTPUT_DIR = path.resolve(__dirname, "output");
-// const outputPath = path.join(OUTPUT_DIR, "team.html");
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 // const { info } = require("console"); // I'm not sure what this is for 
 
-// const render = require("./src/page-template.js"); // this is the equivalent to my generateMarkdown.js file in the readme project
+const render = require("./src/page-template.js"); // this is the equivalent to my generateMarkdown.js file in the readme project
 // eventually we will use fs to write our HTML with the promise from our inquirer prompts 
 
 
@@ -77,6 +77,7 @@ const promptForNextEmployee = () => {
             promptForIntern();
         } else {
             console.log("will call the build page function here");
+            buildPage();
         }
     })
 };
@@ -101,7 +102,7 @@ const promptForEngineer = () => {
 
 const promptForIntern = () => {
     inquirer.prompt(questions.aboutIntern).then(response => {
-        const intern = new Engineer(
+        const intern = new Intern(
             response.name,
             response.id,
             response.email,
@@ -113,10 +114,10 @@ const promptForIntern = () => {
     })
 };
 
-/*
+
 
 const buildPage = () => {
+    fs.writeFile(outputPath, render(employees), (err) =>
+    err ? console.error(err) : console.log("The page was successfully created!"))
+};
 
-}
-
-*/
